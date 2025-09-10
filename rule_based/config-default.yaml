@@ -1,0 +1,185 @@
+#######################################################################################
+#####################             default config file             #####################
+#######################################################################################
+
+
+########## CATEGORY 1: Configuration Parameters, like dataset, paths, cpus etc.########
+DATASET_NAME: tkgl-icews14 
+RANKINGS_PATH: default # /ceph/jgasting/rucola/rankings/ # path to the rankings folder, where the rankings are stored; only specify if you do not want to use the default path, which is the current working directory + '/rankings/'
+LEARN_DATA_PATH: default # /ceph/jgasting/rucola/learn_data/ # path to the learn data folder, where the learn data is stored; only specify if you do not want to use the default path, which is the current working directory + '/learn_data/'
+
+
+####### all sorts of flags: do we want to learn params and so on
+CREATE_LEARN_DATA_FLAG: False #True # do we want to create the data for learning the params for decay functions? if True: yes, if False: load from file
+LEARN_PARAMS_OPTION: learn #  options: learn, default, static, compute- how do we want to select the params for decay functions? 
+
+LOAD_PARAMS_FLAG: False # do we want to load the params for decay functions from file? if True: yes (needs to have been precomputed), if False: do the option specified in learn parapms option
+APPLY_RULES_FLAG: True # do we want to apply the rules? if True: yes, if False: no
+EVAL_VALSET_FLAG: True # do we want to compute also val mrr and apply the rules on the validation set? if True: yes, if False: no
+EVAL_TESTSET_FLAG: True # to we want to compute test mrr? if True: yes, if False: no
+
+NUM_CPUS: 1 # 20
+
+DELETE_RANKINGS_FLAG: False # do we want to delete the rankings after applying the rules and evaluating the result, if everything finished successfully? if True: yes, if False: no
+PLOT_FLAG: False # do we want to plot the fitted curve results? if True: yes, if False: no - makes the process much slower, especially if many rules.
+
+
+########## CATEGORY 2: Hyperparameters. Can be tuned based on the valid dataset performance. ########
+## params for rules
+
+#### DEFAULT HYPERPARAM VALUES - MIGHT BE OVERWRITTEN BY DATASSET_OVERRIDES SPEFICIED BELOW #####
+
+# ruletypes to consider
+RULE_TYPE_C: True # True
+
+RULE_UNSEEN_NEGATIVES: 30 # 10
+LEARN_WINDOW_SIZE: 10 # window size: how many previous interactions do we take into account for the rules (for learning params)
+
+# how many datapoints do we at least need s.t. the multi params are learned. if lower than this, we set multi params to 0. 
+DATAPOINT_THRESHOLD_MULTI: 0
+
+# z-rules a.k.a. xi baseline
+Z_RULES_FACTOR: 0.1
+# f-rules
+F_UNSEEN_NEGATIVES: 10 #10
+
+## rule aggregation
+# select from "maxplus" / "noisyor" / "max" / 
+AGGREGATION_FUNCTION: noisyor
+AGGREGATION_DECAY:  0.8 # decay factor for the aggregation function; only used for "noisyor"; the second score is multiplied by decay, the third by decay^2 and so on; if set to 1, no decay is applied; 
+# stops adding predicting rules to a candidate of a query if already num_top_rules
+# predicted the candidate; if all candidates are predicted by num_top_rules, rule
+# application is stopped; can be used in conjunction with "noisyor" to achieve
+# noisy-or top-h
+NUM_TOP_RULES: 10 # recommended values: -1 under "maxplus"; 50 under "noisyor"
+
+
+DATASET_OVERRIDES:
+  tkgl-icews14:
+    AGGREGATION_DECAY: 0.8
+    NUM_TOP_RULES: 10
+    RULE_TYPE_C: True
+    DATAPOINT_THRESHOLD_MULTI: 0
+    F_UNSEEN_NEGATIVES: 10
+    LEARN_WINDOW_SIZE: 50
+    RULE_UNSEEN_NEGATIVES: 30
+    Z_RULES_FACTOR: 0.1
+  tkgl-yago:
+    AGGREGATION_DECAY: 0.7
+    NUM_TOP_RULES: 5
+    RULE_TYPE_C: True
+    DATAPOINT_THRESHOLD_MULTI: 50
+    F_UNSEEN_NEGATIVES: 30
+    LEARN_WINDOW_SIZE: 30
+    RULE_UNSEEN_NEGATIVES: 30
+    Z_RULES_FACTOR: 0.1
+  tkgl-wikiold:
+    AGGREGATION_DECAY: 0.8
+    NUM_TOP_RULES: 10
+    RULE_TYPE_C: True
+    DATAPOINT_THRESHOLD_MULTI: 50
+    F_UNSEEN_NEGATIVES: 10
+    LEARN_WINDOW_SIZE: 3
+    RULE_UNSEEN_NEGATIVES: 1
+    Z_RULES_FACTOR: 0.1
+  tkgl-smallpedia:
+    AGGREGATION_DECAY: 0.4
+    NUM_TOP_RULES: 5
+    RULE_TYPE_C: True
+    DATAPOINT_THRESHOLD_MULTI: 10
+    F_UNSEEN_NEGATIVES: 30
+    LEARN_WINDOW_SIZE: 3
+    RULE_UNSEEN_NEGATIVES: 3
+    Z_RULES_FACTOR: 0
+  tkgl-polecat:
+    AGGREGATION_DECAY: 0.8
+    NUM_TOP_RULES: 10
+    RULE_TYPE_C: False
+    DATAPOINT_THRESHOLD_MULTI: 0
+    F_UNSEEN_NEGATIVES: 10
+    LEARN_WINDOW_SIZE: 150
+    RULE_UNSEEN_NEGATIVES: 30
+    Z_RULES_FACTOR: 0.1
+  tkgl-icews18:
+    AGGREGATION_DECAY: 0.8
+    NUM_TOP_RULES: 10
+    RULE_TYPE_C: True
+    DATAPOINT_THRESHOLD_MULTI: 50
+    F_UNSEEN_NEGATIVES: 10
+    LEARN_WINDOW_SIZE: 50
+    RULE_UNSEEN_NEGATIVES: 100
+    Z_RULES_FACTOR: 0.1
+  tkgl-gdelt:
+    AGGREGATION_DECAY: 0.8
+    NUM_TOP_RULES: 10
+    RULE_TYPE_C: False
+    DATAPOINT_THRESHOLD_MULTI: 0
+    F_UNSEEN_NEGATIVES: 10
+    LEARN_WINDOW_SIZE: 200
+    RULE_UNSEEN_NEGATIVES: 30
+    Z_RULES_FACTOR: 0.1  
+  tkgl-wikidata:
+    AGGREGATION_DECAY: 0.8
+    NUM_TOP_RULES: 10
+    RULE_TYPE_C: True
+    DATAPOINT_THRESHOLD_MULTI: 0
+    F_UNSEEN_NEGATIVES: 10
+    LEARN_WINDOW_SIZE: 10
+    RULE_UNSEEN_NEGATIVES: 30
+    Z_RULES_FACTOR: 0.1
+  tkgl-icews:
+    AGGREGATION_DECAY: 0.8
+    NUM_TOP_RULES: 10
+    DATAPOINT_THRESHOLD_MULTI: 50
+    F_UNSEEN_NEGATIVES: 10
+    LEARN_WINDOW_SIZE: 50
+    RULE_UNSEEN_NEGATIVES: 100
+    Z_RULES_FACTOR: 0.1
+
+
+############ CATEGORY 3: Do not change these unless you know what you are doing ########
+# ruletypes to consider
+RULE_TYPE_Z: True #True
+RULE_TYPE_F: True # True
+RULE_TYPE_CYC1_REC: True # recurrecy rules, i.e. rule_body = rule_head
+RULE_TYPE_CYC1_NON_REC: True #True # True # cyclic rules and rule_body != rule_head
+
+
+
+EVAL_TYPE: random # options: average or random. # add random noise to the scores before computing ranks, to get "random" instead of "average" results for ties 
+
+# rules
+MULTI_FLAG: True # do we take into account frequency of the rules? if True: yes, if False: no; # equation 13, g_r
+SINGLE_FLAG: True # do we take into account the most recent occurence distance? if True: yes, if False: no # equation 12, f_+r
+THRESHOLD_CORRECT_PREDICTIONS: 0 # 10 #  # learn rules with support > this value ###we recomment to NOT change these!!!
+THRESHOLD_CONFIDENCE: 0 #0.01 # 0.001 # learn rules with confidence greater than this value   ###we recomment to NOT change these!!!
+THRESHOLD_APPLY_CONFIDENCE: 0 # 0.001 # create only those candidates as prediction with a confidence score higher than this value ###we recomment to NOT change these!!!
+
+# rules with constants
+# threshold for c-rules used at the end of the learn input generation
+C_THRESHOLD_CONFIDENCE: 0.001 #0.0  # confidence must be higher than this value
+C_RULE_RECURRENCY_ACTIVE: True  # if true, these rules are allowed r(x,c,t) <= r(x,c,t'), of False the are not mined
+
+# threshold about number of different x-values that lead to correct predictions during sampling
+# the higher this number, the less rules are mined => mrr slightly worse, more efficient in comnputing rules params and mire efficient in the apply phase
+# C_X_COUNT: 5  # if not specified here, its automatically set depeninding on the size of the dataset
+
+LARGE_DATA_HARDCODE_FLAG: Null # only if you manually want to overwrite the large data flag set to True. otherwise set to Null. If set to Null, it will set large_data_flag to True if the dataset is large enough (>1 Mio quads)
+VERY_LARGE_DATA_HARDCODE_FLAG: Null # only if you manually want to overwrite the very large data flag set to True. otherwise set to Null. If set to Null, it will set very_large_data_flag to True if the dataset is large enough (>5k timesteps). for very very large datasets, this is for the update of the f-rules per timestep. if this is true, we do not store the f-rule confidences for each timestep
+
+APPLY_WINDOW_SIZE: -1 # window size: how many previous interactions do we take into account for the rules (for apply) - recommend: set to -1, to use all timesteps; or set as large as possible
+Z_MIN_SUPPORT: 0 # minimum support for z-rules (>) the lower the better. you can increase this value to reduce the number of z-rules mined, and thus application speed, but it will also reduce the mrr
+Z_MIN_CONFIDENCE: 0 # minimum confidence for z-rules (>) the lower the better. you can increase this value to reduce the number of z-rules mined, and thus application speed, but it will also reduce the mrr
+Z_UNSEEN_NEGATIVES: 10
+
+F_MIN_SUPPORT: 0
+F_MIN_CONFIDENCE: 0 #0.01
+
+LMBDA_REG: 0 # regularization parameter for learning the multi function with linear regression
+
+RR_OFFSET: -99 # -1 # learn data creation redundancy;   
+# -1 means that is surpresses the examples where yesterday the same happened
+# 0 means that is surpresses the examples where the same happened in between body and head grounding
+# -99 (or any number smaller than -1) means that all examples are use
+
+
