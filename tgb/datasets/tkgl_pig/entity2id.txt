@@ -1,0 +1,13 @@
+pig0	0
+pig1	1
+pig2	2
+pig3	3
+pig4	4
+pig5	5
+pig6	6
+pig7	7
+pig8	8
+pig9	9
+red	10
+green	11
+blue	12

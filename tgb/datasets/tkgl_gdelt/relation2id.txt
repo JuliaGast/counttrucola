@@ -1,0 +1,240 @@
+020	0	Appeal, not specified below
+030	1	Express intent to cooperate, not specified below
+042	2	Make a visit
+043	3	Host a visit
+084	4	Return, release, not specified below
+014	5	Consider policy option
+173	6	Arrest, detain, or charge with legal action
+051	7	Praise or endorse
+1724	8	Impose state of emergency or martial law
+071	9	Provide economic aid
+0841	10	Return, release person(s)
+110	11	Disapprove, not specified below
+172	12	Impose administrative sanctions, not specified below
+0874	13	Retreat or surrender militarily
+131	14	Threaten non-force, not specified below
+112	15	Accuse, not specified below
+010	16	Make statement, not specified below
+012	17	Make pessimistic comment
+013	18	Make optimistic comment
+040	19	Consult, not specified below
+100	20	Demand, not specified below
+018	21	Make empathetic comment
+193	22	Fight with small arms and light weapons
+190	23	Use conventional military force, not specified below
+111	24	Criticize or denounce
+031	25	Express intent to engage in material cooperation, not specified below
+044	26	Meet at a ÒhirdÓlocation
+060	27	Engage in material cooperation, not specified below
+141	28	Demonstrate or rally
+073	29	Provide humanitarian aid
+046	30	Engage in negotiation
+130	31	Threaten, not specified below
+026	32	Appeal to others to meet or negotiate
+081	33	Ease administrative sanctions, not specified below
+036	34	Express intent to meet or negotiate
+181	35	Abduct, hijack, or take hostage
+120	36	Reject, not specified below
+090	37	Investigate, not specified below
+080	38	Yield, not specified below
+1711	39	Confiscate property
+129	40	Veto
+182	41	Physically assault, not specified below
+191	42	Impose blockade, restrict movement
+061	43	Cooperate economically
+192	44	Occupy territory
+015	45	Acknowledge or claim responsibility
+114	46	Complain officially
+045	47	Mediate
+0831	48	Accede to demands for change in leadership
+127	49	Reject plan, agreement to settle dispute
+183	50	Conduct suicide, car, or other non-military bombing, not spec below
+115	51	Bring lawsuit against
+017	52	Engage in symbolic act
+1123	53	Accuse of aggression
+163	54	Impose embargo, boycott, or sanctions
+194	55	Fight with artillery and tanks
+027	56	Appeal to others to settle dispute
+0871	57	Declare truce, ceasefire
+070	58	Provide aid, not specified below
+050	59	Engage in diplomatic cooperation, not specified below
+175	60	Use tactics of violent repression
+113	61	Rally opposition against
+174	62	Expel or deport individuals
+057	63	Sign formal agreement
+1384	64	Threaten conventional attack
+180	65	Use unconventional violence, not specified below
+075	66	Grant asylum
+160	67	Reduce relations, not specified below
+033	68	Express intent to provide matyerial aid, not specified below
+122	69	Reject request or demand for material aid, not specified below
+145	70	Protest violently, riot
+072	71	Provide military aid
+016	72	Deny responsibility
+0214	73	Appeal for intelligence
+140	74	Engage in political dissent, not specified below
+138	75	Threaten to use military force, not specified below
+128	76	Defy norms, law
+1053	77	Demand release of persons or property
+195	78	Employ aerial weapons
+1124	79	Accuse of war crimes
+1712	80	Destroy property
+011	81	Decline comment
+164	82	Halt negotiations
+161	83	Reduce or break diplomatic relations
+1243	84	Refuse to release persons or property
+0842	85	Return, release property
+105	86	Demand mediation
+1823	87	Kill by physical assault
+041	88	Discuss by telephone
+154	89	Mobilize or increase armed forces
+053	90	Rally support on behalf of
+023	91	Appeal for aid, not specified below
+171	92	Seize or damage property, not specified below
+143	93	Conduct strike or boycott, not specified below
+022	94	Appeal for diplomatic cooperation, such as policy support
+1821	95	Sexually assault
+035	96	Express intent to yield, not specified below
+150	97	Demonstrate military or police power, not specified below
+139	98	Give ultimatum
+0311	99	Express intent to cooperate economically
+085	100	Ease economic sanctions, boycott, embargo
+0231	101	Appeal for economic aid
+170	102	Coerce, not specified below
+052	103	Defend verbally
+0332	104	Express intent to provide military aid
+028	105	Appeal to others to engage in or accept mediation
+133	106	Threaten political dissent, protest
+1831	107	Carry out suicide bombing
+025	108	Appeal to yield
+064	109	Share intelligence or information
+1822	110	Torture
+0353	111	Express intent to release persons or property
+186	112	Assassinate
+0331	113	Express intent to provide economic aid
+021	114	Appeal for material cooperation, not specified below
+1721	115	Impose restrictions on political freedoms
+125	116	Reject proposal to meet, discuss, or negotiate
+024	117	Appeal for political reform, not specified below
+1121	118	Accuse of crime, corruption
+1014	119	Demand intelligence cooperation
+202	120	Engage in mass killings
+0241	121	Appeal for change in leadership
+162	122	Reduce or stop aid, not specified below
+124	123	Refuse to yield, not specified below
+152	124	Increase military alert status
+0356	125	Express intent to de-escalate military engagement
+1722	126	Ban political parties or politicians
+0213	127	Appeal for judicial cooperation
+1312	128	Threaten to boycott, embargo, or sanction
+032	129	Express intent to provide diplomatic cooperation such as policy support
+134	130	Threaten to halt negotiations
+151	131	Increase police alert status
+166	132	Expel or withdraw, not specified below
+034	133	Express intent to institute political reform, not specified below
+142	134	Conduct hunger strike, not specified below
+153	135	Mobilize or increase police power
+144	136	Obstruct passage, block
+091	137	Investigate crime, corruption
+062	138	Cooperate militarily
+1041	139	Demand change in leadership
+054	140	Grant diplomatic recognition
+1723	141	Impose curfew
+1056	142	Demand de-escalation of military engagement
+1044	143	Demand change in institutions, regime
+185	144	Attempt to assassinate
+0233	145	Appeal for humanitarian aid
+086	146	Allow international involvement not specified below
+0334	147	Express intent to provide military protection or peacekeeping
+1241	148	Refuse to ease administrative sanctions
+196	149	Violate ceasefire
+083	150	Accede to requests or demands for political reform not specified below
+0814	151	Ease state of emergency or martial law
+203	152	Engage in ethnic cleansing
+1383	153	Threaten unconventional violence
+0234	154	Appeal for military protection or peacekeeping
+0833	155	Accede to demands for rights
+074	156	Provide military protection or peacekeeping
+055	157	Apologize
+1313	158	Threaten to reduce or break relations
+037	159	Express intent to settle dispute
+0861	160	Receive deployment of peacekeepers
+201	161	Engage in mass expulsion
+056	162	Forgive
+1043	163	Demand rights
+0211	164	Appeal for economic cooperation
+106	165	Demand withdrawal
+0253	166	Appeal for release of persons or property
+137	167	Threaten with violent repression
+0344	168	Express intent to change institutions, regime
+019	169	Express accord
+1246	170	Refuse to de-escalate military engagement
+039	171	Express intent to mediate
+0256	172	Appeal for de-escalation of military engagement
+1832	173	Carry out car bombing
+1411	174	Demonstrate for leadership change
+1244	175	Refuse to ease economic sanctions, boycott, or embargo
+082	176	Ease political dissent
+0312	177	Express intent to cooperate militarily
+1122	178	Accuse of human rights abuses
+0232	179	Appeal for military aid
+101	180	Demand information, investigation
+1311	181	Threaten to reduce or stop aid
+1013	182	Demand judicial cooperation
+0862	183	Receive inspectors
+1621	184	Reduce or stop economic assistance
+1431	185	Conduct strike or boycott for leadership change
+087	186	De-escalate military engagement
+063	187	Engage in judicial cooperation
+0341	188	Express intent to change leadership
+0872	189	Ease military blockade
+0243	190	Appeal for rights
+0333	191	Express intent to provide humanitarian aid
+092	192	Investigate human rights abuses
+0242	193	Appeal for policy change
+1382	194	Threaten occupation
+0244	195	Appeal for change in institutions, regime
+094	196	Investigate war crimes
+0873	197	Demobilize armed forces
+1662	198	Expel or withdraw inspectors, observers
+0834	199	Accede to demands for change in institutions, regime
+102	200	Demand policy support
+1233	201	Reject request for rights
+093	202	Investigate military action
+184	203	Use as human shield
+038	204	Express intent to accept mediation
+1031	205	Demand economic aid
+107	206	Demand ceasefire
+123	207	Reject request or demand for political reform, not specified below
+1125	208	Accuse of espionage, treason
+1211	209	Reject economic cooperation
+0811	210	Ease restrictions on political freedoms
+1412	211	Demonstrate for policy change
+1622	212	Reduce or stop military assistance
+0351	213	Express intent to ease administrative sanctions
+0254	214	Appeal for easing of economic sanctions, boycott, or embargo
+0812	215	Ease ban on political parties or politicians
+0314	216	Express intent to cooperate on intelligence
+121	217	Reject material cooperation
+1213	218	Reject judicial cooperation
+1042	219	Demand policy change
+116	220	Find guilty or liable (legally)
+0251	221	Appeal for easing of administrative sanctions
+136	222	Threaten to halt international involvement (non-mediation)
+1231	223	Reject request for change in leadership
+132	224	Threaten with administrative sanctions, not specified below
+0355	225	Express intent allow international involvement (not mediation)
+0212	226	Appeal for military cooperation
+0863	227	Allow delivery of humanitarian aid
+1054	228	Demand easing of economic sanctions, boycott, or embargo
+0813	229	Ease curfew
+1033	230	Demand humanitarian aid
+1661	231	Expel or withdraw peacekeepers
+0255	232	Appeal for target to allow international involvement (non-mediation)
+1413	233	Demonstrate for rights
+1012	234	Demand military cooperation
+1232	235	Reject request for policy change
+165	236	Halt mediation
+1222	237	Reject request for military aid
+126	238	Reject mediation
+1623	239	Reduce or stop humanitarian assistance
