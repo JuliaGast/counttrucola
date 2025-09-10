@@ -10,7 +10,7 @@ LEARN_DATA_PATH: default # /ceph/jgasting/rucola/learn_data/ # path to the learn
 
 
 ####### all sorts of flags: do we want to learn params and so on
-CREATE_LEARN_DATA_FLAG: False #True # do we want to create the data for learning the params for decay functions? if True: yes, if False: load from file
+CREATE_LEARN_DATA_FLAG: True #True # do we want to create the data for learning the params for decay functions? if True: yes, if False: load from file
 LEARN_PARAMS_OPTION: learn #  options: learn, default, static, compute- how do we want to select the params for decay functions? 
 
 LOAD_PARAMS_FLAG: False # do we want to load the params for decay functions from file? if True: yes (needs to have been precomputed), if False: do the option specified in learn parapms option

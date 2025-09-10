@@ -1,0 +1,217 @@
+body {
+  background-color:#bfd5d9;
+  font-family: 'Courier New', Courier, monospace;/* "Poppins", serif; */
+  font-weight: 400;
+  /*font-style: italic; /*'Poppins', sans-serif; /*-apple-system, "Helvetica Neue"/* BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;*/
+  color: #333;
+  line-height: 1.6;
+}
+  /* background-image: linear-gradient(to right, red, orange, yellow, 
+green, blue, indigo, violet); */
+
+
+span.ids {
+	color: #50808e;  /* Deep blue-green for IDs #1a4b66; /*#CCC; #315659*/
+}
+
+span.str {
+	color:  #50808e; /* Muted blue-green for strings  #50808e /*#000; */
+}
+
+span.score {
+	color:#d95c3f; /*#C00; #d95c3f #d9a441*/
+}
+
+span.pred {
+	color: #1a4b66;   /*#C00; */
+	font-weight: 700;
+
+}
+span.predstr {
+	color: #1a4b66;  /*#C00; #276f96; */
+	font-weight: 700;
+	font-style:italic;
+}
+
+a {
+	color: #f45b69 ; /* Coral for links  */ 
+	text-decoration: none;
+  }
+  
+  a:hover {
+	color: #ff7f50; /* Brighter coral for hover effect */
+  }
+  
+  /* Optional - style for the explanations container */
+  .container {
+	padding: 1.0rem;
+	margin: 2rem; 
+	border-radius: 2px;
+	background-color:  #f4f1e1 ; /* Slightly lighter teal background for emphasis #e4eff1 */
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+	
+  }
+
+
+  /* Hide verbose content by default */
+.verbose {
+  display: none;
+}
+
+/* Show verbose when checkbox is checked */
+#verbose-toggle:checked ~ .container .verbose,
+#verbose-toggle:checked ~ div .verbose,
+#verbose-toggle:checked ~ ol .verbose {
+  display: inline;
+}
+
+/* Style for verbose toggle button */
+.verbose-button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 10px 0;
+  color: #f4f1e1 ;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Default text */
+.verbose-button::after {
+  content: "Show details";
+}
+
+/* Change text when checked */
+#verbose-toggle:checked + .verbose-button::after {
+  content: "Hide details";
+}
+
+  
+/* Style for the link */
+/* a.image-link {
+	color: #f45b69; /* Coral color for the link */
+	/* text-decoration: none; */
+	/* position: relative; To position the preview image relative to the link */
+  /* } */
+  
+  /* a.image-link:hover { */
+	/* color: #ff7f50; Brighter coral on hover */
+  /* } */ */
+  
+
+h1, h2, h3, h4, h5, h6 {
+	font-family:  'Courier New', Courier, monospace; /*"Poppins", serif;  Ensure the same font family */
+	font-weight: 700; /* Bold font weight */
+	color: #333; /* Optional: Same color as the body */
+	margin: 0; /* Reset margins for headings */
+	padding: 0;
+  }
+
+
+  h1 {
+	font-size: 2.5rem;
+  }
+  h2 {
+	font-size: 2rem;
+  }
+  h3 {
+	margin-bottom: 1rem;
+  font-family:  'Trebuchet MS', 'Courier New', Courier;
+	font-size: 2.75rem;
+	font-weight: 500;
+	margin-bottom: 1rem;
+  }
+  h4 {
+	font-size: 1.5rem;
+  }
+  h5 {
+	font-size: 1.25rem;
+  }
+  h6 {
+	font-size: 1rem;
+  }
+
+/* Style for the link */
+a.image-link {
+	color: #f45b69; /* Coral color for the link */
+	text-decoration: none;
+	position: relative; /* To position the preview image relative to the link */
+  }
+  
+  a.image-link:hover {
+	color: #ff7f50; /* Brighter coral on hover */
+  }
+  
+  /* Style for the image preview on hover */
+  a.image-link::after {
+	content: ''; /* No text, just an empty content */
+	position: absolute;
+	top: 100%; /* Position below the link */
+	left: 50%;
+	transform: translateX(-50%); /* Center it horizontally */
+	width: 200px; /* Set a fixed width for the preview */
+	height: auto;
+	visibility: hidden; /* Initially hidden */
+	opacity: 0; /* Initially invisible */
+	transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+  }
+  
+  a.image-link:hover::after {
+	visibility: visible;
+	opacity: 1;
+  }
+  
+  /* Add a preview image directly (use 'img' tag inside the link for better control) */
+  a.image-link:hover img {
+	display: block;
+	max-width: 600px; /* Set a max width for the preview */
+	height: auto;
+	border: 1px solid #ccc; /* Optional border around the image */
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  }
+  
+  /* Hide the image preview when not hovered */
+  a.image-link img {
+	display: none;
+  }
+
+
+  /* Style for collapsible container */
+.collapsible-container {
+    position: relative;
+    margin-bottom: 20px;
+    /*border: 1px solid #ccc;
+    border-radius: 5px; */
+    overflow: hidden;
+    max-height: 250px; /* Default height for 10 lines */
+    transition: max-height 0.3s ease;
+}
+
+
+
+/* Style for the toggle button */
+.toggle-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+	color: #ff7f50; 
+}
+
+/* Rotate arrow when expanded */
+.toggle-button.expanded {
+    transform: rotate(180deg);
+}
+
+/* Expanded container */
+.collapsible-container.expanded {
+	max-height: none; /* Remove height restriction */
+}
+
+
+
