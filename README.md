@@ -1,17 +1,50 @@
 #     CountTRuCoLa
-Temporal Rule Confidence Learning for \\ Temporal Knowledge Graph Forecasting
-<img width="818" height="778" alt="Graf_Rucola_Blau" src="https://github.com/user-attachments/assets/c3947beb-adae-4d95-ae46-d09a9b5aa3c2" />
+Temporal Rule Confidence Learning forTemporal Knowledge Graph Forecasting
 
-## requirements
-pip install -r requirements.txt
+Gastinger, Julia; Meilicke, Christian; and Stuckenschmidt, Heiner 2025. CountTRuCoLa: Rule Confidence Learning for Temporal Knowledge Graph Forecasting. arXiv preprint
 
-## how to run
-* run rule_based/main.py. 
-see section "Configurations Guide" below, for an explanation on how to set configs
+
+![alt text](466490506-c3947beb-adae-4d95-ae46-d09a9b5aa3c2.png)
 
 
 
-### Configuration Guide
+
+## 1. Requirements
+`pip install -r requirements.txt`
+
+## 2. How to run
+`python rule_based/main.py` 
+
+or, if you want to specify a certain dataset
+`python rule_based/main.py --params DATASET_NAME tkgl-icews14`
+options for datasets: `tkgl-icews14, tkgl-yago, tkgl-wikiold, tkgl-smallpedia, tkgl-polecat, tkgl-icews18, tkgl-gdelt, tkgl-wikidata, tkgl-icews`
+
+This runs all steps:
+* loading the dataset
+* preparing the example set 
+* learning the rules and parameters
+* applying the rules to test and valid set
+* evaluation on test and valid set
+
+**When you first run main.py for a dataset, you will be asked in terminal, whether you want to download the dataset. You need to answer yes in order to download it and run the code.**
+
+All relevant documents (examples E, in this case called learn_data, rules, rankings) are stored in subfolders of the folder "files"
+If you want to run only a subset of the above steps, you can do so by setting it in `rule_based/config-default.yaml`
+
+```
+CREATE_LEARN_DATA_FLAG: True # do we want to create the Example data for learning the params for decay functions? if True: yes, if False: load from file
+LOAD_PARAMS_FLAG: False # do we want to load the params for decay functions from file? if True: yes (needs to have been precomputed), if False: learn the params
+APPLY_RULES_FLAG: True # do we want to apply the rules? if True: yes, if False: no
+EVAL_VALSET_FLAG: True # do we want to compute also val mrr and apply the rules on the validation set? if True: yes, if False: no
+EVAL_TESTSET_FLAG: False # to we want to compute test mrr? if True: yes, if False: no
+```
+
+Be aware, that e.g. in order to apply the rules, you before need to have created them, i.e. you need to first create the learn data, then learn the rules, and then only you can apply them.
+
+See section "Configurations Guide" below, for an explanation on how to set configs
+
+
+## 3. Configuration Guide
 
 This project uses a flexible configuration system based on YAML files and command-line arguments.
 
@@ -31,7 +64,7 @@ The default config contains:
 - Recommended values for **specific datasets** (which override the general defaults)
 - Internal/debug settings (not recommended to change unless you're doing ablation studies)
 
----
+
 #### ⚡️ Options for advanced users
 <details> <summary>If you want to customize parameters, there are multiple ways to do so. (click triangle on left to expand)</summary>
 
@@ -144,39 +177,16 @@ If you change `DATASET_NAME` via `--params` or `options_call`, **the system auto
 
 
 ---
-## results
-* Results are stored in saved_results/modelname_seed_datasetsname_results.json
-
-## explanations
-* by running rule_based/explainer.py you can get explanations for predictions for quadruples of interest
-* for this, you need to provide certain input in the folder `files/explanation/exp_number/input/`, and you will get the explanations in the folder `files/explanation/exp_number/input/`. `exp_number` can e.g. be set to `1`. it needs to be referenced in `explainer.py`, e.g.: `exp_number = `6`
-* input:
-  * quadruples to be explained:
-    * option 1: txt file with quadruples `quadruples.txt`, in format subject_id, rel_id, object_id, timestep, one line per quadruple separate by empty space
-    * option 2: txt file with partly specification `quadruples.txt`, in format subject_id, rel_id, object_id, timestep, one line per quadruple separate by empty space, and writing an `x` if you do not care about this entry. if you want 
-      * e.g. all quadruples with the relation id `1` explained, you can write `x x 1 x`. 
-      * e.g. all quadruples with subject `2` and timestep 100 explained, you can write `2 x x 100` and so and
-    * option 3: if you do not provide `quadruples.txt` you can alternatively speciy your quadruple as user input in terminal
-    * option 4: `explain_all_quads_flag = True`: all quadruples in the valid or in the test set will be explained. depends on the split set in `dataset_split` (`val` or `test`).careful with this option, if the dataset is large, this can take a while, especially if you set the plot flag to true, or if you have a large dataset.
-* output:
-  * `explanations_fancy.html` html file with explanations for each quad 
-  * `explanations.txt` - the same explanations but in `txt` format
-  * `ranks.txt` the ranks assigned by rucola for the given quads.
-
-  * rules: txt file with rules rulefile, with naming ideally: `dataset name (e.g. tkgl-icews) + - + ... + -ruleset-ids.txt`, e.g.:  `tkgl-icews14-whateveryouwant-ruleset-ids.txt, and ruleset-strings.txt`
-
-## Things to keep in mind
-* richtungen mit invertierten relationen! es gibt immer nur tail predictions - for every quadruple, there is an inverse quadruple [src, rel, dst, ts] and [dst, rel+num_rels, src, ts], representing e.g.: [tim, visits, marc, 2020] and [marc, inv_visits, tim, 2020]. this is needed for easier evaluation
-* info to majd: indeces to string! timestamps in originalwerten
-* info to majd: richtungen mit invertierten relationen! es gibt immer nur tail predictions
-* make own dataset class! - careful: the dataset has been mapped to indices already, the timestamps might not be mapped to indices - they should be mapped to indices as well. this rule-dataset class should have a id-to-string method. it should be possible to print the string recommendation of everything, e.g. of the top ten predictions and of the rules
+## 4. Results
+* Results are stored in files/results/datasetname-results.csv
+* This file contains all relevant config param values as well als hits and mrr values, and runtimes
 
 
-## Datasets
+## 5. Datasets
 
 ### Dataset identifiers:
 * used so far in existing tkg works, e.g. baseline paper:`tkgl-icews14, tkgl-icews18, tkgl-gdelt, tkgl-yago, tkgl-wikiold`
-* for future use also possible, from tgb 2.0:`tkgl-icews, tkgl-polecat, tkgl-smallpedia, tkgl-wikidata`
+* from tgb 2.0:`tkgl-icews, tkgl-polecat, tkgl-smallpedia, tkgl-wikidata`
 
 ### Locations:
 * folder tgb/datasets/tkgl-yago
@@ -188,29 +198,56 @@ dataset = LinkPropPredDataset(name= name, root=dir_data, preprocess=True)
 ```
 * when running this code you will be asked whether the dataset should be downloaded
 
-### node and relation to id mappings
+### Node and Relation to Id Mappings
 *`entity2id.txt` and`rel2id.txt` contain the mapping from ids to strings; for wiki datasets and gdelt datasets, I fetched the strings from the internet and for gdelt from the cameo database
 *`node_mapping.csv` and`rel_mapping.csv` contain the infos from original id, the id that is used in tgb internatlly, and the string.
 
-### train valid and test splits
+### Train, Valid and Test Splits
 * the split is done automatically in tgb. you can e.g. access it by
 ```
 self.train_data = self.all_quads[self.dataset.train_mask]
 self.val_data = self.all_quads[self.dataset.val_mask]
 self.test_data = self.all_quads[self.dataset.test_mask]
 ```
-* alternatively you can split it by yourself, here are the splits:
-* [screenshots for dataset splits](https://github.com/JuliaGast/GraphTRuCoLa/issues/17)
 
 
-### inverse relations
+
+### Inverse Relations
 * when loading the datasets in tgb, they automatically contain the inverse triples, i.e. for each triple, sub_id, rel_id, ob_id, the inverse triple ob_id, rel_id+num_rels, sub_id is present.
 * in`datatasetname_edgelist.csv` only the original quadruples are present, in the order timestamp,head,tail,relation_type, without inverse.
 
 
-## Links
-* [Baseline Paper](https://arxiv.org/abs/2404.16726)
-* [Baseline Code](https://github.com/nec-research/recurrency_baseline_tkg)
-* [Baseline datasets](https://github.com/nec-research/recurrency_baseline_tkg/tree/master/data)
+## 6. Evaluation
+* Evaluation is done autmatically when running `main.py`
+* The evaluation is conducted using the TGB 2.0 framework (https://tgb.complexdatalab.com/). The relevant code is taken from https://github.com/shenyangHuang/TGB. 
+* We add the tgb code in the Folder /tgb/
+* We manually added the datasets `tkgl-icews14, tkgl-icews18, tkgl-gdelt, tkgl-yago, tkgl-wikiold` and used the same splits as suggested in the evaluation paper by Gastinger et al. (https://dl.acm.org/doi/10.1007/978-3-031-43418-1_32) 
+* You can however also run evaluation for a given rankings file by running `rul_based/eval.py` when specifying the path to the rankings file `path_rankings_val = "/files/rankings/filename.txt"`
+
+
+
+
+## 7. Links and references
 * [TGB 2.0 (evaluation and datasets framework) Paper](https://arxiv.org/abs/2406.09639v1)
-* [TGB 2.0 code](https://github.com/JuliaGast/TGB2)
+* [TGB 2.0 code](https://github.com/shenyangHuang/TGB)
+* [other datasets](https://github.com/nec-research/TKG-Forecasting-Evaluation/tree/main/data)
+  
+```
+TGB 2.0 (evaluation and some datasets)
+@article{huang2024tgb2,
+  title={TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous Graphs},
+  author={Gastinger, Julia and Huang, Shenyang and Galkin, Mikhail and Loghmani, Erfan and Parviz, Ali and Poursafaei, Farimah and Danovitch, Jacob and Rossi, Emanuele and Koutis, Ioannis and Stuckenschmidt, Heiner and      Rabbany, Reihaneh and Rabusseau, Guillaume},
+  journal={Advances in Neural Information Processing Systems},
+  year={2024}
+}
+
+Evaluation Paper (remaining datasets and splits)
+@inproceedings{gastinger2023comparing,
+  title={Comparing apples and oranges? on the evaluation of methods for temporal knowledge graph forecasting},
+  author={Gastinger, Julia and Sztyler, Timo and Sharma, Lokesh and Schuelke, Anett and Stuckenschmidt, Heiner},
+  booktitle={Joint European conference on machine learning and knowledge discovery in databases},
+  pages={533--549},
+  year={2023},
+  organization={Springer}
+}
+```
