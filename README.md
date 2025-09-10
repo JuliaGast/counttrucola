@@ -3,7 +3,8 @@ Temporal Rule Confidence Learning forTemporal Knowledge Graph Forecasting
 
 Gastinger, Julia; Meilicke, Christian; and Stuckenschmidt, Heiner 2025. CountTRuCoLa: Rule Confidence Learning for Temporal Knowledge Graph Forecasting. arXiv preprint
 
-![alt text](image.png)
+<img width="414" height="394" alt="grafik" src="https://github.com/user-attachments/assets/9093b6b7-6987-4a94-a9dd-879acc322a5a" />
+
 
 
 
