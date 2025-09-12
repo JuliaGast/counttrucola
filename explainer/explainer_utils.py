@@ -553,7 +553,8 @@ def write_explanations(out_path, rule_triple_dict, dataset, max_rules_per_pred, 
             quad_to_pred_dict['subject_id'] = quad[0]
             quad_to_pred_dict['rel_id'] = quad[1]
             quad_to_pred_dict['object_id'] = quad[2]
-            quad_to_pred_dict['gt_nodes'] = dataset.head_rel_t_tail['explain'][quad[0]][quad[1]][quad[3]]
+            gt_nodes = dataset.head_rel_t_tail['explain'][quad[0]][quad[1]][quad[3]]
+            quad_to_pred_dict['gt_nodes'] = [quad[2]] + [node for node in gt_nodes if node != quad[2]]
             quad_to_pred_dict['gt_nodes_string'] = [dataset.nodes_id_to_string[i][0] for i in quad_to_pred_dict['gt_nodes']]
             quad_to_pred_dict['timestep'] = quad[3]
             quad_to_pred_dict['subject_string'] = dataset.nodes_id_to_string[quad[0]][0]
@@ -727,7 +728,7 @@ def write_html(quads_dict, output_folder):
                 <span class="ids">{quad['timestep']}</span>
                 </span>
                 <span class="str">{quad['subject_string']} {quad['rel_string']}</span>
-                <span class="predstr">{quad['object_string']}</span>
+                <span class="predstr">{'?'}</span>
                 <span class="str">{quad['timestep_string']}</span>
 
             <p><span class="predstr">Ground Truth Nodes:</span>
