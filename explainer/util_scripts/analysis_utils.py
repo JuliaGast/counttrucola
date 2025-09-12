@@ -149,7 +149,7 @@ def plot_edges_per_ts(stats_df, num_triples_dict, figs_dir, dataset_name, log_fl
         plt.legend()
         plt.tight_layout()
         #plt.title(dataset_name+ ' - Number of Triples aggregated across multiple timesteps')
-        plt.show()
+        # plt.show()
         save_path2 = (os.path.join(figs_dir,f"num_triples_discretized_{num_bars}_{dataset_name}2.png"))
         plt.savefig(save_path2, bbox_inches='tight')
         save_path2 = (os.path.join(figs_dir,f"num_triples_discretized_{num_bars}_{dataset_name}2.pdf"))
@@ -179,7 +179,7 @@ def plot_edges_per_ts(stats_df, num_triples_dict, figs_dir, dataset_name, log_fl
                 plt.savefig(save_path2, bbox_inches='tight')
         except:
             print('Could not plot log scale')
-        plt.close('all')
+        # plt.close('all')
             
 
 
