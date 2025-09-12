@@ -30,7 +30,8 @@ All demo scripts contain documentation on input/output and conducted steps
   ../files/explanations/yourexperimentname/output
   ```
 * The file has entries for each quadruple of interest, which look like this:
-  ![alt text](image.png)
+  <img width="2582" height="1324" alt="example" src="https://github.com/user-attachments/assets/e435ea03-ff7c-4d3a-96a2-29c395c8b4c1" />
+
 * This is an explanation for the query (Alexis T., Consult, ?, 334) with ground truth Evangelos V.. The figure illustrates how rules
 (e.g. rule 1) with their confidences (0.17) based on recency (0.171) and frequency score (-0.001) contribute to the predicted
 node and node score (Evangelos V., 0.22), and how often (1x) and long ago (4 timestamps) the rule grounding occured.
