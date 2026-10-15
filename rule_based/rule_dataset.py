@@ -208,7 +208,9 @@ class RuleDataset:
         """
         if 'icews' in dataset_name or 'polecat' in dataset_name:
             if '18' in dataset_name or '14' in dataset_name:
-                return ts_distmean            
+                return ts_distmean          
+            elif '0515' in dataset_name:
+                return ts_distmean
             else:
                 return 86400
         elif 'wiki' in dataset_name or 'yago' in dataset_name:
@@ -562,7 +564,7 @@ class RuleDataset:
             print(f'The learn window size  LEARN_WINDOW_SIZE {window_size} is larger than half of the dataset timesteps. It makes up {window_size/len(self.timesteps_set)} of the number of timesteps in the full dataset.')
             print('This might lead to problems, as the learn window size is too large for the dataset.')
             print(f'We recommend to reduce the learn window size to max {int(len(self.timesteps_set)/3)}.')
-            exit()
+            # exit()
 
     def blocked_by_recurrency_train(self, head, rel, tail, j, i, offset):
         if offset == -1:

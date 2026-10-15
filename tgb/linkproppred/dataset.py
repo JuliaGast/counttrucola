@@ -312,12 +312,16 @@ class LinkPropPredDataset(object):
                 df, edge_feat, node_ids = csv_to_tkg_data(self.meta_dict["fname"])
             elif self.name == 'tkgl-icews14':
                 df, edge_feat, node_ids = csv_to_tkg_data(self.meta_dict["fname"])
+            elif self.name == 'tkgl-icews0515':
+                df, edge_feat, node_ids = csv_to_tkg_data(self.meta_dict["fname"])
             elif self.name == 'tkgl-icews18':
                 df, edge_feat, node_ids = csv_to_tkg_data(self.meta_dict["fname"])
             elif self.name == 'tkgl-gdelt':
                 df, edge_feat, node_ids = csv_to_tkg_data(self.meta_dict["fname"])
             elif self.name == 'tkgl-muffi':
                 df, edge_feat, node_ids = csv_to_tkg_data(self.meta_dict["fname"])
+            elif self.name == 'tkgl-concert1':
+                df, edge_feat, node_ids = csv_to_wikidata(self.meta_dict["fname"])  
             elif self.name == 'tkgl-mini':
                 df, edge_feat, node_ids = csv_to_tkg_data(self.meta_dict["fname"])
             elif self.name == 'tkgl-monkey':
@@ -409,6 +413,8 @@ class LinkPropPredDataset(object):
             _train_mask, _val_mask, _test_mask = self.generate_splits(full_data, val_ratio=0.095, test_ratio=0.082) 
         elif ("icews18" in self.name):
             _train_mask, _val_mask, _test_mask = self.generate_splits(full_data, val_ratio=0.098, test_ratio=0.106) 
+        elif ("icews0515" in self.name):
+            _train_mask, _val_mask, _test_mask = self.generate_splits(full_data, val_ratio=0.10036655, test_ratio=0.100056576) 
         elif ("gdelt" in self.name):
             _train_mask, _val_mask, _test_mask = self.generate_splits(full_data, val_ratio=0.105, test_ratio=0.134) 
         elif ("wikiold" in self.name):
@@ -417,6 +423,8 @@ class LinkPropPredDataset(object):
             _train_mask, _val_mask, _test_mask = self.generate_splits(full_data, val_ratio=0.09576317993414744, test_ratio=0.060049069820421505)
         elif ("mini" in self.name):
             _train_mask, _val_mask, _test_mask = self.generate_splits(full_data, val_ratio=0.0, test_ratio=0.0) 
+        elif('concert' in self.name):
+            _train_mask, _val_mask, _test_mask = self.generate_splits(full_data, val_ratio=0.1, test_ratio=0.1)
         else:
             _train_mask, _val_mask, _test_mask = self.generate_splits(full_data, val_ratio=0.15, test_ratio=0.15)
         self._train_mask = _train_mask

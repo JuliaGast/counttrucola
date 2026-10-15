@@ -371,6 +371,9 @@ def csv_to_tkg_data(
                 continue
             else:
                 ts = int(row[0]) #converted to UNIX timestamp already 
+                src = row[1]
+                dst = row[2]
+                relation = row[3]
                 src = int(row[1])
                 dst = int(row[2])
                 relation = int(row[3])
@@ -389,7 +392,7 @@ def csv_to_tkg_data(
                 w_list[idx - 1] = float(1)
                 edge_type[idx - 1] = relation
                 idx += 1
-    if 'yago' in fname or 'icews14' in fname or 'icews18' in fname or 'wikiold' in fname or 'gdelt' or 'monkey' or 'pig' or 'crisis' in fname:
+    if 'yago' in fname or 'icews14' in fname or 'icews18' in fname or 'icews0515' in fname or 'wikiold' in fname or 'gdelt'  in fname or 'monkey' in fname  or 'pig' in fname  or 'crisis'  in fname or 'concert' in fname:
         input_file = 'entity2id.txt'
         input_file_rel = "relation2id.txt"
     elif 'muffi' in fname:
@@ -440,7 +443,7 @@ def write_mappings_to_csv(node_ids:dict, fname:str, input_file:str="None", input
                 parts = line.strip().split('\t')
                 if len(parts) < 2:
                     continue
-                if 'wikidata' in fname or 'smallpedia' in fname:
+                if 'wikidata' in fname or 'smallpedia' in fname or 'concert' in fname:
                     string, original_id = parts[1], parts[0]
                 else:
                     string, original_id = parts[0], int(parts[1])
@@ -473,7 +476,7 @@ def write_mappings_to_csv(node_ids:dict, fname:str, input_file:str="None", input
                 parts = line.strip().split('\t')
                 if len(parts) < 2:
                     continue
-                if 'wikidata' in fname or 'smallpedia' in fname:
+                if 'wikidata' in fname or 'concert' in fname or 'smallpedia' in fname:
                     string, original_id = parts[1], parts[0]
                 else:
                     string, original_id = parts[0], int(parts[1])

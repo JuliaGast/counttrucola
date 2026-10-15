@@ -47,6 +47,7 @@ DATA_URL_DICT = {
     "tkgl-icews18": "https://drive.google.com/uc?id=1FPQE014gZ9n-yNicMu4iKosMv-54R17L&export=download", # added by counttrucola authors
     "tkgl-wikiold": "https://drive.google.com/uc?id=1V-oO6usWiVzkyiDRfD87Zj-K9sup1QmP&export=download", # added by counttrucola authors
     "tkgl-gdelt": "https://drive.google.com/uc?id=1QPNJZhu9GqjubCsFdoCt26FFls3X3zfW&export=download", # added by counttrucola authors
+    "tkgl-concert1": 'https://drive.google.com/uc?id=1z7cZrAsAk0_RjbbKqGly5BF6D2Nd5uKr&export=download',
     "tkgl-muffi": "https://drive.google.com/uc?id=149SGipvBmLAqUPxl4WzfJ6KT9S0xX123&export=download", # added by counttrucola authors
     "tkgl-mini": "https://drive.google.com/uc?id=149SGipvBmLAqUPxl4WzfJ6KT9S0xX123&export=download", # added by counttrucola authors
     "tkgl-monkey": "https://drive.google.com/uc?id=1SsOEpbUqA_W4O0b2gBhLLHm1xQfo4YTh&export=download" , # added by counttrucola authors
@@ -70,6 +71,7 @@ DATA_VERSION_DICT = {
     "tkgl-yago": 1,
     "tkgl-icews14": 1,
     "tkgl-icews18": 1,
+    "tkgl-icews0515": 1,
     "tkgl-gdelt": 1,
     "tkgl-wikiold": 1,
     "tkgl-wikidata": 1,
@@ -77,6 +79,7 @@ DATA_VERSION_DICT = {
     "tkgl-mini": 1,
     "tkgl-monkey": 1,
     "tkgl-pig": 1,
+    "tkgl-concert1": 1,
     "tkgl-crisis2023": 1,
     "thgl-myket": 1,
     "thgl-github": 1,
@@ -96,7 +99,9 @@ DATA_EVAL_METRIC_DICT = {
     "tkgl-polecat": "mrr",
     "tkgl-yago": "mrr",
     "tkgl-icews14": "mrr",
+    "tkgl-icews0515": "mrr",
     "tkgl-muffi": "mrr",
+    "tkgl-concert1": "mrr",
     "tkgl-mini": "mrr",
     "tkgl-monkey": "mrr",
     "tkgl-crisis2023": "mrr",
@@ -127,7 +132,9 @@ DATA_NS_STRATEGY_DICT = {
     "tgbl-flight": "hist_rnd",
     "tkgl-polecat": "time-filtered",
     "tkgl-yago": "time-filtered",
+    "tkgl-icews0515": "time-filtered",
     "tkgl-icews14": "time-filtered",
+    "tkgl-concert1": "time-filtered",
     "tkgl-icews18": "time-filtered",
     "tkgl-muffi": "time-filtered",
     "tkgl-mini": "time-filtered",
