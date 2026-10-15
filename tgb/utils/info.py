@@ -45,6 +45,7 @@ DATA_URL_DICT = {
     "thgl-software": "https://object-arbutus.cloud.computecanada.ca/tgb/thgl-software.zip", #"https://object-arbutus.cloud.computecanada.ca/tgb/thgl-software_ns_random.zip"
     "tkgl-icews14": 'https://drive.google.com/uc?id=1Klc16EY8PEe04S704mGGvLcnNL0E-42B&export=download',# added by counttrucola authors
     "tkgl-icews18": "https://drive.google.com/uc?id=1FPQE014gZ9n-yNicMu4iKosMv-54R17L&export=download", # added by counttrucola authors
+    'tkgl-icews0515': "https://drive.google.com/uc?id=1KPXUJSzyxpQFqsdg5GHCxaf5Dugt6nmO&export=download", # added by counttrucola authors
     "tkgl-wikiold": "https://drive.google.com/uc?id=1V-oO6usWiVzkyiDRfD87Zj-K9sup1QmP&export=download", # added by counttrucola authors
     "tkgl-gdelt": "https://drive.google.com/uc?id=1QPNJZhu9GqjubCsFdoCt26FFls3X3zfW&export=download", # added by counttrucola authors
     "tkgl-concert1": 'https://drive.google.com/uc?id=1z7cZrAsAk0_RjbbKqGly5BF6D2Nd5uKr&export=download',
